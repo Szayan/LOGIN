@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Signup Page</title>
+    <style>
+      /* Set the background color and alignment of the body */
+      body {
+        background-color: rgb(161, 161, 245);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Define the styles for the container */
+      .container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      /* Set the font size and margin of the heading */
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      /* Add margin to the form */
+      form {
+        margin-top: 20px;
+      }
+
+      /* Define the styles for the labels */
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* Define the styles for the form inputs */
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 2px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      /* Define the styles for the submit button */
+      input[type="submit"] {
+        background-color: #ba7dff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Define the styles for the hover effect on the submit button */
+      input[type="submit"]:hover {
+        background-color: #361634;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create a container for the signup page -->
+    <div class="container">
+      <!-- Display the heading of the signup page -->
+      <h1>Signup Page</h1>
+      <!-- Create a form for the signup inputs -->
+      <form action="/signup" method="post">
+        <!-- Display a label for the username input -->
+        <label for="username">Username:</label>
+        <!-- Create a text input for the username -->
+        <input type="text" id="username" name="username" required><br>
+        <!-- Display a label for the password input -->
+        <label for="password">Password:</label>
+        <!-- Create a password input for the password -->
+        <input type="password" id="password" name="password" required><br>
+        <!-- Create a submit button for the form -->
+        <input type="submit" value="Signup">
+      </form>
+    </div>
+  </body>
+</html>

@@ -24,19 +24,25 @@ pool.query(`
     password VARCHAR(255) NOT NULL
   )
 `);
+
+// Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Handle GET requests to the root URL by sending the login HTML file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'login.html'));
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+
 // Handle GET requests to the signup URL by sending the signup HTML file
 app.get('/signup', (req, res) => {
-  res.sendFile(path.join(__dirname, 'signup.html'));
+  res.sendFile(path.join(__dirname, 'public', 'signup.html'));
 });
+
 // Handle POST requests to the signup URL by inserting user data into the users table
 app.post('/signup', (req, res) => {
   const { username, password } = req.body;
 
-// Insert user data into the users table using the connection pool
+  // Insert user data into the users table using the connection pool
   pool.execute('INSERT INTO users (username, password) VALUES (?, ?)', [username, password], (err, result) => {
     if (err) {
       console.error(err);
@@ -52,7 +58,7 @@ app.post('/signup', (req, res) => {
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-// Handle POST requests to the root URL by checking for user in the users table with matching credentials
+  // Handle POST requests to the root URL by checking for a user in the users table with matching credentials
   pool.execute('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, result) => {
     if (err) {
       console.error(err);
@@ -67,7 +73,8 @@ app.post('/login', (req, res) => {
     }
   });
 });
-// localhost
+
+// Start the server
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
