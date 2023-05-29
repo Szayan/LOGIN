@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script>
+      function openPopup() {
+        // Open the popup window
+        var popupWindow = window.open("/popup", "Popup", "width=400,height=300");
+      }
+    </script>
     <meta charset="UTF-8">
     <title>Login Page</title>
     <style>
@@ -81,6 +87,22 @@
     </style>
   </head>
   <body>
+    <button onclick="openPopup()">MUST READ IF OUTSIDE OF EU</button>
+      
+
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close">&times;</span>
+          <p>By using the website you agree to the terms and service.</p>
+          <a href="terms.html">MUST READ</a>
+        </div>
+      </div>
+      
+         
+      
+
+
+        
     <!-- Create a container for the login page -->
     <div class="container">
       <!-- Display the heading of the login page -->
